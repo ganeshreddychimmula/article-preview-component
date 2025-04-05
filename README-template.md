@@ -65,29 +65,184 @@ Use this section to recap over some of your major learnings while working throug
 
 To see how you can add code snippets, see below:
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
+
 
 If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
-### Continued development
+### Structure review 1:
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+```html
+  <body>
+    <main class="container">
+      <article class="preview-article">
+        <figure class="article-img-container">
+          <img src="./images/drawers.jpg" alt="Image of drawers" />
+        </figure>
+        <header>
+          <h2 class="article-heading">
+            Shift the overall look and feel by adding these wonderful touches to
+            furniture in your home
+          </h2>
+        </header>
+        <p class="article-description">
+          Ever been in a room and felt like something was missing? Perhaps it
+          felt slightly bare and uninviting. I’ve got some simple tips to help
+          you make any room feel complete.
+        </p>
+        <footer class="footer">
+          <div class="profile-user">
+            <img src="./images/avatar-michelle.jpg" alt="" aria-hidden="true" />
+            <address class="user-details">
+              <h3>Michelle Appleton</h3>
+              <time> 28 Jun 2020 </time>
+            </address>
+          </div>
+          <div class="share-container">
+            <nav class="navi-menu">
+              <span>Share</span>
+              <ul class="navigation-list">
+                <li class="nav-icons">
+                  <a href="#" aria-label="share on facebook">
+                    <img src="/images/icon-facebook.svg" alt="facebook icon" />
+                  </a>
+                </li>
+                <li class="nav-icons">
+                  <a href="#" aria-label="share on twitter">
+                    <img src="./images/icon-twitter.svg" alt="twitter icon"/></a>
+                </li>
+                <li class="nav-icons">
+                  <a href="#" aria-label="share on pinterest">
+                    <img
+                      src="./images/icon-pinterest.svg"
+                      alt="pinterest icon"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <button class="share-button" aria-label="share this article">
+            <img src="./images/icon-share.svg" alt="" aria-hidden="true" />
+          </button>
+        </footer>
+      </article>
+    </main>
+  </body>
+```
+Here's feedback with some suggestions for improvement(from claude):
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+### Strengths:
+1. Proper use of semantic elements like `<article>`, `<figure>`, `<header>`, and `<footer>`
+2. Good use of `<time>` for the publication date
+3. Clean organization of content sections
+4. Appropriate use of `aria-label` for social sharing links
+5. Alt text for images is present
+
+### Areas for improvement:
+
+1. **Time element**: The `<time>` element should include a `datetime` attribute with a machine-readable format:
+   ```html
+   <time datetime="2020-06-28">28 Jun 2020</time>
+   ```
+
+2. **Author markup**: Consider using `<address>` for the author information:
+   ```html
+   <address class="user-details">
+     <h3>Michelle Appleton</h3>
+     <time datetime="2020-06-28">28 Jun 2020</time>
+   </address>
+   ```
+
+3. **Navigation purpose**: The `<nav>` element is typically for major site navigation - for social sharing, a simple `<div>` with appropriate ARIA might be more appropriate:
+   ```html
+   <div class="social-share" role="group" aria-label="Share options">
+     <h3>Share</h3>
+     <ul class="social-list">
+       <!-- items -->
+     </ul>
+   </div>
+   ```
+
+4. **Share button**: The share button should include a type and potentially a more descriptive label:
+   ```html
+   <button type="button" class="share-button" aria-label="Share this article">
+     <img src="./images/icon-share.svg" alt="" aria-hidden="true" />
+   </button>
+   ```
+   Note that when the image is purely decorative and accompanied by aria-label, the alt text can be empty.
+
+5. **Heading hierarchy**: The `<h3>` for "Share" might be reconsidered - it's not really a section heading but more of a label. Consider using a `<span>` with appropriate styling instead.
+
+6. **Profile image**: Consider adding `aria-hidden="true"` to the profile picture since it's decorative and using empty alt text:
+   ```html
+   <img src="./images/avatar-michelle.jpg" alt="" aria-hidden="true" />
+   ```
+
+7. **Linking**: The article title could be wrapped in a link if it's meant to lead to the full article:
+   ```html
+   <h2 class="article-heading">
+     <a href="/full-article">Shift the overall look and feel...</a>
+   </h2>
+   ```
+
+### Choosing class-names Dilemma
+Here's a clean and concise summary of better class naming practices:
+
+✅ Better Class Naming – Notes
+
+ 1. **Be Descriptive & Semantic**
+- Use meaningful names that reflect purpose, not appearance.  
+  E.g., `.share-button` instead of `.box1`
+
+---
+
+ 2. **Follow BEM Convention**
+- Structure: `block__element--modifier`
+```html
+<div class="card">
+  <h2 class="card__title"></h2>
+  <button class="card__button card__button--active"></button>
+</div>
+```
+
+---
+
+3. **Avoid Visual-Based Names**
+- ❌ `.red-text`  
+- ✅ `.error-message`
+
+---
+
+4. **Consistent Casing**
+- Prefer `kebab-case` for HTML/CSS  
+  (e.g., `share-button`, `nav-item`)
+
+---
+
+5. **Group by Feature/Component**
+- Use structured names like:
+  - `.article-preview__heading`
+  - `.profile-user__avatar`
+
+---
+
+6. **Prefix Utility Classes (if used)**
+- For reusable helpers:  
+  `u-margin-top-sm`, `u-text-center`
+
+---
+
+Bonus Tips
+- Use **SASS** for better organization (nesting, variables).
+- Consider **Tailwind CSS** for utility-first workflows.
+
+---
+
+Let me know if you want a live example refactored using BEM!
+
+
+
 
 ### Useful resources
 
