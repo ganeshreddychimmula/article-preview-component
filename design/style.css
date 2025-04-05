@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --white: rgb(255, 255, 255);
+  --grey-900: rgb(72, 85, 106);
+  --grey-500: rgb(110, 128, 152);
+  --grey-400: rgb(157, 174, 194);
+  --grey-200: rgb(236, 242, 248);
+
+  /* === Text Preset 1 (Bold) === */
+  --text-preset-1-font-size: 20px;
+  --text-preset-1-line-height: 130%;
+  --text-preset-1-letter-spacing: 0.25px;
+  --text-preset-1-font-weight: 700; /* Manrope Bold */
+
+  /* === Text Preset 2 (Bold) === */
+  --text-preset-2-bold-font-size: 13px;
+  --text-preset-2-bold-line-height: 140%;
+  --text-preset-2-bold-letter-spacing: 0.12px;
+  --text-preset-2-bold-font-weight: 700;
+
+  /* === Text Preset 2 (Medium) === */
+  --text-preset-2-medium-font-size: 13px;
+  --text-preset-2-medium-line-height: 140%;
+  --text-preset-2-medium-letter-spacing: 0.12px;
+  --text-preset-2-medium-font-weight: 500;
+
+  /* === Text Preset 3 === */
+  --text-preset-3-font-size: 13px;
+  --text-preset-3-line-height: 140%;
+  --text-preset-3-letter-spacing: 0.25em;
+  --text-preset-3-font-weight: 400; /* Regular */
+
+  --spacing-0: 0px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-700: 56px;
+  --spacing-800: 64px;
+  --spacing-1300: 104px;
+  --spacing-2000: 160px;
+
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    font-family: "Manrope", sans-serif;
+  }
+}
