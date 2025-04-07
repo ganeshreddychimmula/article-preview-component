@@ -132,14 +132,14 @@ If you want more help with writing markdown, we'd recommend checking out [The Ma
 ```
 Here's feedback with some suggestions for improvement(from claude):
 
-### Strengths:
+**Strengths:**
 1. Proper use of semantic elements like `<article>`, `<figure>`, `<header>`, and `<footer>`
 2. Good use of `<time>` for the publication date
 3. Clean organization of content sections
 4. Appropriate use of `aria-label` for social sharing links
 5. Alt text for images is present
 
-### Areas for improvement:
+**Areas for improvement:**
 
 1. **Time element**: The `<time>` element should include a `datetime` attribute with a machine-readable format:
    ```html
@@ -239,8 +239,123 @@ Bonus Tips
 
 ---
 
-Let me know if you want a live example refactored using BEM!
+### I am trying to change the following svg's color. But i am not able to? why?
+```html
+<button
+              id="share-button"
+              class="article-card__share-button"
+              aria-label="toggle share menu"
+            >
+              <img
+                src="./images/icon-share.svg"
+                alt=""
+                focusable="false"
+                aria-hidden="true"
+              />
+            </button>
+```
+```Css
+.article-card__share-button {
+    height: 32px;
+    width: 32px;
+    border-radius: 90px;
+align-self: center;
+border: none;
+z-index: 3;
+background-color: var(--grey-200);
+color: var(--grey-500);
+}
+```
+why?
+__answer__
+It looks like you're trying to change the color of an SVG image that's included via an `<img>` tag, but you're running into issues. The reason this isn't working is that when you use an SVG as an external image with the `<img>` tag, you can't modify its colors using CSS.
 
+Here are a few solutions to make your SVG color changeable:
+
+**Option 1: Use inline SVG instead of an image**
+Replace the `<img>` tag with the actual SVG code directly in your HTML. This allows you to target SVG elements with CSS:
+
+```html
+<button
+  id="share-button"
+  class="article-card__share-button"
+  aria-label="toggle share menu"
+>
+  <svg width="15" height="13" xmlns="http://www.w3.org/2000/svg">
+    <!-- Your SVG path data here -->
+    <path d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z" fill="currentColor"/>
+  </svg>
+</button>
+```
+
+Then in your CSS, `currentColor` will inherit from the `color` property of your button:
+
+```css
+.article-card__share-button {
+  /* Your existing styles */
+  color: var(--grey-500); /* This will be inherited by the SVG */
+}
+
+.article-card__share-button--active {
+  /* Your existing styles */
+  color: var(--white); /* This will change the SVG color when active */
+}
+```
+
+**Option 2: Use an SVG as a background image**
+
+Replace the `<img>` tag with a background image:
+
+```html
+<button
+  id="share-button"
+  class="article-card__share-button"
+  aria-label="toggle share menu"
+></button>
+```
+
+```css
+.article-card__share-button {
+  /* Your existing styles */
+  background-image: url('./images/icon-share.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 15px; /* Adjust to match your icon size */
+}
+
+.article-card__share-button--active {
+  /* Your existing styles */
+  filter: brightness(0) invert(1); /* This will make the icon white */
+}
+```
+
+### Option 3: Use SVG with CSS mask
+This approach is great for changing colors:
+
+```html
+<button
+  id="share-button"
+  class="article-card__share-button"
+  aria-label="toggle share menu"
+></button>
+```
+
+```css
+.article-card__share-button {
+  /* Your existing styles */
+  background-color: var(--grey-500); /* This will be the icon color */
+  -webkit-mask: url('./images/icon-share.svg') no-repeat center;
+  mask: url('./images/icon-share.svg') no-repeat center;
+  -webkit-mask-size: 15px; /* Adjust to match your icon size */
+  mask-size: 15px;
+}
+
+.article-card__share-button--active {
+  background-color: var(--white); /* This changes the icon color when active */
+}
+```
+
+The third option is especially powerful for changing colors of SVGs without modifying the original file.
 
 
 

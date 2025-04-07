@@ -165,7 +165,14 @@
 align-self: center;
 border: none;
 z-index: 3;
+background-color: var(--grey-200);
+color: var(--grey-500);
 }
+
+.article-card__share-button--active {
+    background-color: var(--grey-500);
+    color: var(--white); 
+}   
 
 .article-footer__share-menu--mobile {
   display: none;
@@ -173,10 +180,11 @@ z-index: 3;
   z-index: 2;
   bottom: 0;
   left: 0;
-  flex-direction: row;
-  background-color: var(--grey-500);
+  background-color: var(--grey-900);
   height: 76px;
   width: 100%;
+  padding: 32px;
+  align-items: center;
 }
 
 .article-card__share-options {
