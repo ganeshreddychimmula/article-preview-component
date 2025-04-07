@@ -131,6 +131,11 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 24px;
+    color: var(--grey-900);
+}
+
+.article-card__description{
+    color: var(--grey-500);
 }
 
 .article-card__footer {
@@ -156,6 +161,14 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;    
+}
+
+.article-card__author-details h3{
+    color: var(--grey-900);
+}
+
+.article-card__author-details time{
+    color: var(--grey-400);
 }
 
 .article-card__share-button {
