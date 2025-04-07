@@ -1,5 +1,5 @@
 let shareButton = document.querySelector("#share-button");
-let shareOptions = document.querySelector(".article-footer__share-menu--mobile");
+let shareOptions = document.querySelector(".article-card__share-options");
 
 shareButton.addEventListener("click", function () {
     let display = shareOptions.style.display;

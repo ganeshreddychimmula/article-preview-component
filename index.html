@@ -20,7 +20,6 @@
     <main class="container">
       <article class="article-card">
         <figure class="article-card__image">
-          <img src="./images/drawers.jpg" alt="Image of drawers" />
         </figure>
         <section class="article-card__details">
           <header class="article-card__header">
@@ -42,7 +41,51 @@
                 <time datetime="06-28-2020" class="text-preset-2-medium"> 28 Jun 2020 </time>
               </address>
             </div>
-            <button
+            <div class="article-card__share-container">
+              <nav class="article-card__share-options">
+                <span class="article-card__share-label">Share</span>
+                <ul class="article-card__share-list">
+                  <li class="article-card__share-icons">
+                    <a
+                      href="#"
+                      class="article-card__share-icons-link"
+                      aria-label="share on facebook"
+                    >
+                      <img
+                        src="./images/icon-facebook.svg"
+                        alt="facebook icon"
+                        aria-hidden="true"
+                      />
+                    </a>
+                  </li>
+                  <li class="article-card__share-icons">
+                    <a
+                      class="article-card__share-icons-link"
+                      href="#"
+                      aria-label="share on twitter"
+                    >
+                      <img
+                        src="./images/icon-twitter.svg"
+                        alt="twitter icon"
+                        aria-hidden="true"
+                    /></a>
+                  </li>
+                  <li class="article-card__share-icons">
+                    <a
+                      href="#"
+                      class="article-card__share-icons-link"
+                      aria-label="share on pinterest"
+                    >
+                      <img
+                        src="./images/icon-pinterest.svg"
+                        alt="pinterest icon"
+                        aria-hidden="true"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <button
               id="share-button"
               class="article-card__share-button"
               aria-label="toggle share menu"
@@ -51,52 +94,8 @@
               <path fill="currentColor" d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"></path>
             </svg>
             </button>
+            </div>
           </footer>
-          <div id="share-menu" class="article-footer__share-menu--mobile" >
-            <nav class="article-card__share-options">
-              <span class="article-card__share-label">Share</span>
-              <ul class="article-card__share-list">
-                <li class="article-card__share-icons">
-                  <a
-                    href="#"
-                    class="article-card__share-icons-link"
-                    aria-label="share on facebook"
-                  >
-                    <img
-                      src="./images/icon-facebook.svg"
-                      alt="facebook icon"
-                      aria-hidden="true"
-                    />
-                  </a>
-                </li>
-                <li class="article-card__share-icons">
-                  <a
-                    class="article-card__share-icons-link"
-                    href="#"
-                    aria-label="share on twitter"
-                  >
-                    <img
-                      src="./images/icon-twitter.svg"
-                      alt="twitter icon"
-                      aria-hidden="true"
-                  /></a>
-                </li>
-                <li class="article-card__share-icons">
-                  <a
-                    href="#"
-                    class="article-card__share-icons-link"
-                    aria-label="share on pinterest"
-                  >
-                    <img
-                      src="./images/icon-pinterest.svg"
-                      alt="pinterest icon"
-                      aria-hidden="true"
-                    />
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
         </section>
       </article>
     </main>
