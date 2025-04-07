@@ -167,7 +167,7 @@ border: none;
 z-index: 3;
 }
 
-.article-footer__share-menu {
+.article-footer__share-menu--mobile {
   display: none;
   position: absolute;
   z-index: 2;
