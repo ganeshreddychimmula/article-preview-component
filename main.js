@@ -17,18 +17,18 @@ shareButton.addEventListener("click", ()=>{
     shareOptions.classList.toggle('article-card__share-options--active');
 })
 
-// // Closes share box when clicked outside
-// document.addEventListener('click', (e)=> {
-//     if(!shareButton.contains(e.target) && !shareOptions.contains(e.target)) {
-//         shareButton.classList.remove('article-card__share-button--active');
-//         shareOptions.classList.remove('article-card__share-options--active')
-//     }
-// })
+// Closes share box when clicked outside
+document.addEventListener('click', (e)=> {
+    if(!shareButton.contains(e.target) && !shareOptions.contains(e.target)) {
+        shareButton.classList.remove('article-card__share-button--active');
+        shareOptions.classList.remove('article-card__share-options--active')
+    }
+})
 
-// // keyboard accesibility
-// shareButton.addEventListener("keydown", (e) => {
-//     if(e.key === "Enter" || e.key === ""){
-//         e.preventDefault();
-//         shareButton.click();
-//     }
-// })
+// keyboard accesibility
+shareButton.addEventListener("keydown", (e) => {
+    if(e.key === "Enter" || e.key === ""){
+        e.preventDefault();
+        shareButton.click();
+    }
+})
