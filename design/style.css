@@ -207,6 +207,10 @@
   color: var(--grey-400);
 }
 
+.article-card__share-options--active{
+    display: flex;
+}
+
 .article-card__share-list {
   display: flex;
   align-items: baseline;
